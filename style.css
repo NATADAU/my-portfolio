@@ -9,19 +9,18 @@
 }
 
 :root {
-  /* Палитра "смело но нежно" */
-  --clr-bg:        #FDF7F2;        /* тёплый крем */
-  --clr-surface:   #FFF1E9;        /* персиковая поверхность */
-  --clr-surface-2: #FDE8DE;        /* чуть темнее */
+  --clr-bg:        #FDF7F2;
+  --clr-surface:   #FFF1E9;
+  --clr-surface-2: #FDE8DE;
   --clr-border:    rgba(180, 100, 80, 0.12);
 
-  --clr-text:      #1C0F0A;        /* почти чёрный, тёплый */
-  --clr-text-muted:#8B7267;        /* тёплый серо-коричневый */
+  --clr-text:      #1C0F0A;
+  --clr-text-muted:#8B7267;
 
-  --clr-accent:    #C4385B;        /* малина — смелый */
-  --clr-accent-2:  #F2A7C0;        /* блаш — нежный */
-  --clr-accent-3:  #F5C9A0;        /* персик */
-  --clr-accent-4:  #C9B8F0;        /* лаванда */
+  --clr-accent:    #C4385B;
+  --clr-accent-2:  #F2A7C0;
+  --clr-accent-3:  #F5C9A0;
+  --clr-accent-4:  #C9B8F0;
 
   --radius:    20px;
   --radius-sm: 10px;
@@ -128,63 +127,30 @@ em {
    ===================== */
 
 .hero {
-  <section class="hero">
-  <div class="hero__bg-photo"></div>
-  <div class="hero__overlay"></div>
-  <div class="hero__content">
-    <p class="hero__role">Дизайнер-энтузиаст · Мама</p>
-    <h1 class="hero__name">Привет,<br /><em>я Ната</em></h1>
-    <p class="hero__tagline">Создаю красивое, воспитываю любимых, дружу с нейросетями и не боюсь муки на руках</p>
-    <div class="hero__cta">
-      <a href="#about" class="btn btn--primary">Узнать больше</a>
-      <a href="mailto:nata.daut@gmail.com" class="btn btn--outline">Написать мне</a>
-    </div>
-  </div>
-  <div class="hero__scroll"><span></span></div>
-</section>
-}
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: var(--nav-h) 1.5rem 4rem;
 }
 
-.hero__bg {
+.hero__bg-photo {
   position: absolute;
   inset: 0;
-  pointer-events: none;
-  overflow: hidden;
+  background: url('images/photo.png') center top / cover no-repeat;
 }
 
-.hero__blob {
+.hero__overlay {
   position: absolute;
-  border-radius: 50%;
-  filter: blur(70px);
-  opacity: 0.55;
-  animation: drift 10s ease-in-out infinite;
-}
-
-.hero__blob--1 {
-  width: 520px; height: 520px;
-  background: var(--clr-accent-2);
-  top: -120px; left: -80px;
-  animation-delay: 0s;
-}
-
-.hero__blob--2 {
-  width: 380px; height: 380px;
-  background: var(--clr-accent-3);
-  bottom: -60px; right: 80px;
-  animation-delay: -4s;
-}
-
-.hero__blob--3 {
-  width: 260px; height: 260px;
-  background: var(--clr-accent-4);
-  top: 45%; left: 58%;
-  animation-delay: -7s;
-}
-
-@keyframes drift {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  40%       { transform: translate(24px, -28px) scale(1.06); }
-  70%       { transform: translate(-18px, 16px) scale(0.94); }
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(253, 247, 242, 0.25) 0%,
+    rgba(253, 247, 242, 0.70) 55%,
+    rgba(253, 247, 242, 0.97) 100%
+  );
 }
 
 .hero__content {
@@ -195,23 +161,7 @@ em {
   flex-direction: column;
   align-items: center;
   gap: 1.2rem;
-}
-
-.hero__avatar {
-  width: 90px; height: 90px;
-  background: linear-gradient(135deg, var(--clr-accent), var(--clr-accent-2));
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 2rem;
-  color: #fff;
-  box-shadow:
-    0 0 0 6px rgba(196, 56, 91, 0.12),
-    0 8px 32px rgba(196, 56, 91, 0.25);
-  margin-bottom: 0.25rem;
+  margin-top: 40vh;
 }
 
 .hero__role {
@@ -635,10 +585,6 @@ em {
   .contacts__layout {
     grid-template-columns: 1fr;
   }
-
-  .hero__blob--1 { width: 320px; height: 320px; }
-  .hero__blob--2 { width: 260px; height: 260px; }
-  .hero__blob--3 { width: 180px; height: 180px; }
 }
 
 @media (max-width: 520px) {
